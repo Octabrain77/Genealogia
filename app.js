@@ -1,58 +1,53 @@
 let people = [];
 
 fetch("./data/family.json")
-    .then(response => response.json())
-    .then(data => {
-        people = data.persons;
-        console.log("Dati genealogici caricati");
-    });
+  .then(response => response.json())
+  .then(data => {
+      people = data.persons;
+  });
 
-document.addEventListener("click", function(event) {
+document.addEventListener("click", function(event){
 
     const card = event.target.closest(".person");
 
-    if (!card) return;
+    if(!card) return;
 
-    const id = card.getAttribute("data-id");
+    const id = card.dataset.id;
 
     const person = people.find(p => p.id === id);
 
-    if (!person) return;
+    if(!person) return;
 
-    let fullName = person.givenName;
+    let name = person.givenName;
 
-    if (person.nickname) {
-        fullName += ' "' + person.nickname + '"';
+    if(person.nickname){
+        name += ' "' + person.nickname + '"';
     }
 
-    fullName += ' ' + person.surname;
+    if(person.surname){
+        name += ' ' + person.surname;
+    }
 
     document.getElementById("details").innerHTML = `
-        <h2>${fullName}</h2>
+        <h2>${name}</h2>
 
-        <p><strong>ID:</strong> ${person.id}</p>
+        <p><b>ID:</b> ${person.id}</p>
 
         <p>
-            <strong>Nascita:</strong>
+            <b>Nascita:</b>
             ${person.birthDate || person.birthYear || "Sconosciuta"}
             ${person.birthApproximate ? " ?" : ""}
         </p>
 
         <p>
-            <strong>Morte:</strong>
+            <b>Morte:</b>
             ${person.deathDate || person.deathYear || "Sconosciuta"}
         </p>
 
         ${
-            person.nickname
-                ? `<p><strong>Soprannome:</strong> ${person.nickname}</p>`
-                : ""
-        }
-
-        ${
             person.notes
-                ? `<p><strong>Note:</strong> ${person.notes}</p>`
-                : ""
+            ? `<p><b>Note:</b> ${person.notes}</p>`
+            : ""
         }
     `;
 });
