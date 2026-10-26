@@ -1,72 +1,123 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albero Genealogico Cappello</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Genealogia Cappello</title>
+
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
-    <h1>Archivio Genealogico Cappello</h1>
-    <p>Versione iniziale</p>
+    <h1>Genealogia Cappello</h1>
+    <p>Archivio genealogico sperimentale</p>
 </header>
 
 <div class="container">
 
-    <div class="tree">
+    <main class="tree">
 
         <div class="person" data-id="P1">
-            Giuseppe Cappello (1863?)
+            Giuseppe Cappello<br>
+            1863?
         </div>
 
-        <div class="connector"></div>
-
-        <div class="row">
-            <div class="person" data-id="P2">
-                Giovanni Cappello<br>
-                1891 - 1962
-            </div>
-
-            <div class="person spouse" data-id="P3">
-                Maria Bobba<br>
-                1893 - 1969
-            </div>
+        <div class="person" data-id="P2">
+            Rosa Gerbi
         </div>
 
         <h3>Figli</h3>
 
-        <div class="children">
+        <div class="row">
 
-            <div class="person" data-id="P4">
-                Carlo Cappello<br>
-                1923 - 1923
+            <div class="person" data-id="P3">
+                Giovanni Cappello<br>
+                1891-1962
             </div>
 
-            <div class="person" data-id="P5">
-                Giuseppe "Pinin" Cappello<br>
-                1917 - 1971
+            <div class="person" data-id="P10">
+                Francesco "Cichin"<br>
+                1895-1982
             </div>
 
-            <div class="person" data-id="P6">
-                Rosa "Magna" Cappello<br>
-                1920 - 2004
+            <div class="person" data-id="P12">
+                Clara Cappello
             </div>
 
-            <div class="person" data-id="P7">
-                Francesco "Barbacicu" Cappello<br>
-                1924 - 1973
-            </div>
-
-            <div class="person" data-id="P8">
-                Angelo Cappello<br>
-                1925 - 1983
+            <div class="person" data-id="P13">
+                Carmela Cappello
             </div>
 
         </div>
 
-    </div>
+        <h3>Ramo Giovanni Cappello</h3>
+
+        <div class="children">
+
+            <div class="person" data-id="P6">
+                Giuseppe "Pinin"<br>
+                1917-1971
+            </div>
+
+            <div class="person" data-id="P7">
+                Rosa "Magna"<br>
+                1920-2004
+            </div>
+
+            <div class="person" data-id="P8">
+                Francesco "Barbacicu"<br>
+                1924-1973
+            </div>
+
+            <div class="person" data-id="P9">
+                Angelo Cappello<br>
+                1925-1983
+            </div>
+
+        </div>
+
+        <h3>Ramo Cichin</h3>
+
+        <div class="children">
+
+            <div class="person" data-id="P14">
+                Giuseppe Cappello<br>
+                1924-2014
+            </div>
+
+            <div class="person" data-id="P15">
+                Rosa Maria Cappello<br>
+                1927-2017
+            </div>
+
+        </div>
+
+        <h3>Figli di Giuseppe Cappello (1924-2014)</h3>
+
+        <div class="children">
+
+            <div class="person" data-id="P16">
+                Fabrizio
+            </div>
+
+            <div class="person" data-id="P17">
+                Giovanni
+            </div>
+
+            <div class="person" data-id="P18">
+                Franca Maria
+            </div>
+
+            <div class="person" data-id="P19">
+                Piero
+            </div>
+
+        </div>
+
+    </main>
 
     <aside id="details">
         <h2>Dettagli</h2>
