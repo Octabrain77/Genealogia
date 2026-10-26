@@ -9,20 +9,25 @@
     },
     {
       "id": "P2",
+      "givenName": "Rosa",
+      "surname": "Gerbi"
+    },
+    {
+      "id": "P3",
       "givenName": "Giovanni",
       "surname": "Cappello",
       "birthDate": "1891-04-01",
       "deathYear": 1962
     },
     {
-      "id": "P3",
+      "id": "P4",
       "givenName": "Maria",
       "surname": "Bobba",
       "birthYear": 1893,
       "deathYear": 1969
     },
     {
-      "id": "P4",
+      "id": "P5",
       "givenName": "Carlo",
       "surname": "Cappello",
       "birthYear": 1923,
@@ -30,7 +35,7 @@
       "notes": "Morto a 2 mesi"
     },
     {
-      "id": "P5",
+      "id": "P6",
       "givenName": "Giuseppe",
       "nickname": "Pinin",
       "surname": "Cappello",
@@ -38,7 +43,7 @@
       "deathDate": "1971-07-16"
     },
     {
-      "id": "P6",
+      "id": "P7",
       "givenName": "Rosa",
       "nickname": "Magna",
       "surname": "Cappello",
@@ -46,7 +51,7 @@
       "deathYear": 2004
     },
     {
-      "id": "P7",
+      "id": "P8",
       "givenName": "Francesco",
       "nickname": "Barbacicu",
       "surname": "Cappello",
@@ -54,11 +59,62 @@
       "deathYear": 1973
     },
     {
-      "id": "P8",
+      "id": "P9",
       "givenName": "Angelo",
       "surname": "Cappello",
       "birthYear": 1925,
       "deathYear": 1983
-    }
-  ]
-}
+    },
+    {
+      "id": "P10",
+      "givenName": "Francesco Antonio Giuseppe",
+      "nickname": "Cichin",
+      "surname": "Cappello",
+      "birthDate": "1895-05-20",
+      "deathYear": 1982
+    },
+    {
+      "id": "P11",
+      "givenName": "Teresa Francesca Ermelinda",
+      "surname": "Zoppi",
+      "notes": "Nome completo desunto dall'atto di matrimonio del 1923."
+    },
+    {
+      "id": "P12",
+      "givenName": "Clara",
+      "surname": "Cappello",
+      "notes": "Viveva presso l'Istituto dei Caissotti."
+    },
+    {
+      "id": "P13",
+      "givenName": "Carmela",
+      "surname": "Cappello"
+    },
+    {
+      "id": "P14",
+      "givenName": "Giuseppe",
+      "surname": "Cappello",
+      "birthYear": 1924,
+      "deathYear": 2014
+    },
+    {
+      "id": "P15",
+      "givenName": "Rosa Maria",
+      "surname": "Cappello",
+      "birthYear": 1927,
+      "deathYear": 2017,
+      "notes": "Sposata Fornaca."
+    },
+    {
+      "id": "P16",
+      "givenName": "Fabrizio",
+      "surname": "Cappello"
+    },
+    {
+      "id": "P17",
+      "givenName": "Giovanni",
+      "surname": "Cappello"
+    },
+    {
+      "id": "P18",
+ 
