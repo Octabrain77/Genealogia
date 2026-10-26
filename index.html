@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albero Genealogico Cappello</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Archivio Genealogico Cappello</h1>
+    <p>Versione iniziale</p>
+</header>
+
+<div class="container">
+
+    <div class="tree">
+
+        <div class="person" data-id="P1">
+            Giuseppe Cappello (1863?)
+        </div>
+
+        <div class="connector"></div>
+
+        <div class="row">
+            <div class="person" data-id="P2">
+                Giovanni Cappello<br>
+                1891 - 1962
+            </div>
+
+            <div class="person spouse" data-id="P3">
+                Maria Bobba<br>
+                1893 - 1969
+            </div>
+        </div>
+
+        <h3>Figli</h3>
+
+        <div class="children">
+
+            <div class="person" data-id="P4">
+                Carlo Cappello<br>
+                1923 - 1923
+            </div>
+
+            <div class="person" data-id="P5">
+                Giuseppe "Pinin" Cappello<br>
+                1917 - 1971
+            </div>
+
+            <div class="person" data-id="P6">
+                Rosa "Magna" Cappello<br>
+                1920 - 2004
+            </div>
+
+            <div class="person" data-id="P7">
+                Francesco "Barbacicu" Cappello<br>
+                1924 - 1973
+            </div>
+
+            <div class="person" data-id="P8">
+                Angelo Cappello<br>
+                1925 - 1983
+            </div>
+
+        </div>
+
+    </div>
+
+    <aside id="details">
+        <h2>Dettagli</h2>
+        <p>Seleziona una persona.</p>
+    </aside>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
