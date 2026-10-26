@@ -4,10 +4,7 @@ fetch("./data/family.json")
     .then(response => response.json())
     .then(data => {
         people = data.persons;
-        console.log("Dati caricati:", people);
-    })
-    .catch(error => {
-        console.error("Errore caricamento JSON:", error);
+        console.log("Dati genealogici caricati");
     });
 
 document.addEventListener("click", function(event) {
@@ -20,37 +17,42 @@ document.addEventListener("click", function(event) {
 
     const person = people.find(p => p.id === id);
 
-    if (!person) {
-        console.log("Persona non trovata:", id);
-        return;
-    }
+    if (!person) return;
 
-    let nomeCompleto = person.givenName;
+    let fullName = person.givenName;
 
     if (person.nickname) {
-        nomeCompleto += ' "' + person.nickname + '"';
+        fullName += ' "' + person.nickname + '"';
     }
 
-    nomeCompleto += ' ' + person.surname;
+    fullName += ' ' + person.surname;
 
     document.getElementById("details").innerHTML = `
-        <h2>${nomeCompleto}</h2>
+        <h2>${fullName}</h2>
 
         <p><strong>ID:</strong> ${person.id}</p>
 
         <p>
             <strong>Nascita:</strong>
-            ${person.birthDate || person.birthYear || "N/D"}
+            ${person.birthDate || person.birthYear || "Sconosciuta"}
             ${person.birthApproximate ? " ?" : ""}
         </p>
 
         <p>
             <strong>Morte:</strong>
-            ${person.deathDate || person.deathYear || "N/D"}
+            ${person.deathDate || person.deathYear || "Sconosciuta"}
         </p>
 
-        ${person.notes
-            ? `<p><strong>Note:</strong> ${person.notes}</p>`
-            : ""}
+        ${
+            person.nickname
+                ? `<p><strong>Soprannome:</strong> ${person.nickname}</p>`
+                : ""
+        }
+
+        ${
+            person.notes
+                ? `<p><strong>Note:</strong> ${person.notes}</p>`
+                : ""
+        }
     `;
 });
