@@ -1,0 +1,64 @@
+{
+  "persons": [
+    {
+      "id": "P1",
+      "givenName": "Giuseppe",
+      "surname": "Cappello",
+      "birthYear": 1863,
+      "birthApproximate": true
+    },
+    {
+      "id": "P2",
+      "givenName": "Giovanni",
+      "surname": "Cappello",
+      "birthDate": "1891-04-01",
+      "deathYear": 1962
+    },
+    {
+      "id": "P3",
+      "givenName": "Maria",
+      "surname": "Bobba",
+      "birthYear": 1893,
+      "deathYear": 1969
+    },
+    {
+      "id": "P4",
+      "givenName": "Carlo",
+      "surname": "Cappello",
+      "birthYear": 1923,
+      "deathYear": 1923,
+      "notes": "Morto a 2 mesi"
+    },
+    {
+      "id": "P5",
+      "givenName": "Giuseppe",
+      "nickname": "Pinin",
+      "surname": "Cappello",
+      "birthDate": "1917-11-04",
+      "deathDate": "1971-07-16"
+    },
+    {
+      "id": "P6",
+      "givenName": "Rosa",
+      "nickname": "Magna",
+      "surname": "Cappello",
+      "birthYear": 1920,
+      "deathYear": 2004
+    },
+    {
+      "id": "P7",
+      "givenName": "Francesco",
+      "nickname": "Barbacicu",
+      "surname": "Cappello",
+      "birthYear": 1924,
+      "deathYear": 1973
+    },
+    {
+      "id": "P8",
+      "givenName": "Angelo",
+      "surname": "Cappello",
+      "birthYear": 1925,
+      "deathYear": 1983
+    }
+  ]
+}
