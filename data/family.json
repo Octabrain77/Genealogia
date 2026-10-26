@@ -1,129 +1,147 @@
 {
   "persons": [
     {
-      "id": "P1",
-      "givenName": "Giuseppe",
-      "surname": "Cappello",
-      "birthYear": 1863,
-      "birthApproximate": true
+      "id":"P100",
+      "givenName":"Giovanni",
+      "surname":"Cappello",
+      "birthYear":1822,
+      "deathYear":1904
     },
     {
-      "id": "P2",
-      "givenName": "Rosa",
-      "surname": "Gerbi"
+      "id":"P101",
+      "givenName":"Caterina",
+      "surname":"Ballario",
+      "birthYear":1825,
+      "deathYear":1904
     },
     {
-      "id": "P3",
-      "givenName": "Giovanni",
-      "surname": "Cappello",
-      "birthDate": "1891-04-01",
-      "deathYear": 1962
+      "id":"P102",
+      "givenName":"Ferdinando",
+      "surname":"Cappello",
+      "birthDate":"1852-08-02",
+      "deathDate":"1932-10-23",
+      "notes":"Grafia documentata anche come Cap(p)ello. Coniuge: Elisabetta Terzuolo (21/09/1869-06/03/1931). Figli noti: Ferdinanda Rosa Caterina e Alfredo Antonio Francesco."
     },
     {
-      "id": "P4",
-      "givenName": "Maria",
-      "surname": "Bobba",
-      "birthYear": 1893,
-      "deathYear": 1969
+      "id":"P103",
+      "givenName":"Maria",
+      "surname":"Cappello",
+      "deathDate":"1921-04-09",
+      "notes":"Coniuge: Torino Antonio (29/04/1854-23/06/1931)."
     },
     {
-      "id": "P5",
-      "givenName": "Carlo",
-      "surname": "Cappello",
-      "birthYear": 1923,
-      "deathYear": 1923,
-      "notes": "Morto a 2 mesi"
+      "id":"P104",
+      "givenName":"Vittorio Francesco",
+      "surname":"Capello",
+      "birthDate":"1867-10-09",
+      "deathDate":"1938-10-22",
+      "notes":"Coniuge da verificare: Maria Saccati oppure Domenica Paniati."
     },
     {
-      "id": "P6",
-      "givenName": "Giuseppe",
-      "nickname": "Pinin",
-      "surname": "Cappello",
-      "birthDate": "1917-11-04",
-      "deathDate": "1971-07-16"
+      "id":"P105",
+      "givenName":"Clotilde",
+      "surname":"Cappello",
+      "notes":"Sposata Torino Luigi."
     },
     {
-      "id": "P7",
-      "givenName": "Rosa",
-      "nickname": "Magna",
-      "surname": "Cappello",
-      "birthYear": 1920,
-      "deathYear": 2004
+      "id":"P1",
+      "givenName":"Giuseppe",
+      "surname":"Cappello",
+      "birthYear":1863,
+      "birthApproximate":true,
+      "notes":"Coniuge Rosa Gerbi."
     },
     {
-      "id": "P8",
-      "givenName": "Francesco",
-      "nickname": "Barbacicu",
-      "surname": "Cappello",
-      "birthYear": 1924,
-      "deathYear": 1973
+      "id":"P3",
+      "givenName":"Giovanni",
+      "surname":"Cappello",
+      "birthDate":"1891-04-01",
+      "deathYear":1962
     },
     {
-      "id": "P9",
-      "givenName": "Angelo",
-      "surname": "Cappello",
-      "birthYear": 1925,
-      "deathYear": 1983
+      "id":"P10",
+      "givenName":"Francesco Antonio Giuseppe",
+      "nickname":"Cichin",
+      "surname":"Cappello",
+      "birthDate":"1895-05-20",
+      "deathYear":1982
     },
     {
-      "id": "P10",
-      "givenName": "Francesco Antonio Giuseppe",
-      "nickname": "Cichin",
-      "surname": "Cappello",
-      "birthDate": "1895-05-20",
-      "deathYear": 1982
+      "id":"P12",
+      "givenName":"Clara",
+      "surname":"Cappello",
+      "notes":"Viveva presso l'Istituto dei Caissotti."
     },
     {
-      "id": "P11",
-      "givenName": "Teresa Francesca Ermelinda",
-      "surname": "Zoppi",
-      "notes": "Nome completo desunto dall'atto di matrimonio del 1923."
+      "id":"P13",
+      "givenName":"Carmela",
+      "surname":"Cappello"
     },
     {
-      "id": "P12",
-      "givenName": "Clara",
-      "surname": "Cappello",
-      "notes": "Viveva presso l'Istituto dei Caissotti."
+      "id":"P6",
+      "givenName":"Giuseppe",
+      "nickname":"Pinin",
+      "surname":"Cappello",
+      "birthDate":"1917-11-04",
+      "deathDate":"1971-07-16"
     },
     {
-      "id": "P13",
-      "givenName": "Carmela",
-      "surname": "Cappello"
+      "id":"P7",
+      "givenName":"Rosa",
+      "nickname":"Magna",
+      "surname":"Cappello",
+      "birthYear":1920,
+      "deathYear":2004
     },
     {
-      "id": "P14",
-      "givenName": "Giuseppe",
-      "surname": "Cappello",
-      "birthYear": 1924,
-      "deathYear": 2014
+      "id":"P8",
+      "givenName":"Francesco",
+      "nickname":"Barbacicu",
+      "surname":"Cappello",
+      "birthYear":1924,
+      "deathYear":1973
     },
     {
-      "id": "P15",
-      "givenName": "Rosa Maria",
-      "surname": "Cappello",
-      "birthYear": 1927,
-      "deathYear": 2017,
-      "notes": "Sposata Fornaca."
+      "id":"P9",
+      "givenName":"Angelo",
+      "surname":"Cappello",
+      "birthYear":1925,
+      "deathYear":1983
     },
     {
-      "id": "P16",
-      "givenName": "Fabrizio",
-      "surname": "Cappello"
+      "id":"P14",
+      "givenName":"Giuseppe",
+      "surname":"Cappello",
+      "birthYear":1924,
+      "deathYear":2014
     },
     {
-      "id": "P17",
-      "givenName": "Giovanni",
-      "surname": "Cappello"
+      "id":"P15",
+      "givenName":"Rosa Maria",
+      "surname":"Cappello",
+      "birthYear":1927,
+      "deathYear":2017,
+      "notes":"Sposata Fornaca."
     },
     {
-      "id": "P18",
-      "givenName": "Franca Maria",
-      "surname": "Cappello"
+      "id":"P16",
+      "givenName":"Fabrizio",
+      "surname":"Cappello"
     },
     {
-      "id": "P19",
-      "givenName": "Piero",
-      "surname": "Cappello"
+      "id":"P17",
+      "givenName":"Giovanni",
+      "surname":"Cappello"
+    },
+    {
+      "id":"P18",
+      "givenName":"Franca Maria",
+      "surname":"Cappello"
+    },
+    {
+      "id":"P19",
+      "givenName":"Piero",
+      "surname":"Cappello"
     }
   ]
 }
