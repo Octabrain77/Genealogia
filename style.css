@@ -1,143 +1,25 @@
-*{
-    box-sizing:border-box;
-}
-
-body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f3f4f6;
-}
-
-header{
-    background:#1f2937;
-    color:white;
-    padding:15px;
-}
-
-header h1{
-    margin:0 0 10px 0;
-}
-
-.toolbar{
-    margin-bottom:10px;
-}
-
-.toolbar button{
-    margin-right:8px;
-    padding:8px 12px;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-    background:#2563eb;
-    color:white;
-}
-
-.toolbar button:hover{
-    background:#1d4ed8;
-}
-
-.search-bar{
-    margin-top:10px;
-}
-
-.search-bar input{
-    width:100%;
-    max-width:500px;
-    padding:10px;
-    border:1px solid #ccc;
-    border-radius:6px;
-}
-
-.container{
-    display:flex;
-    height:calc(100vh - 140px);
-}
-
-#content{
-    flex:1;
-    overflow:auto;
-    padding:20px;
-}
-
-#details{
-    width:350px;
-    background:white;
-    border-left:1px solid #ddd;
-    padding:20px;
-    overflow:auto;
-}
-
-.person{
-    display:inline-block;
-    min-width:180px;
-    margin:8px;
-    padding:12px;
-    background:white;
-    border:2px solid #2563eb;
-    border-radius:8px;
-    cursor:pointer;
-    transition:0.2s;
-}
-
-.person:hover{
-    background:#eff6ff;
-    transform:scale(1.03);
-}
-
-.family{
-    background:white;
-    border:1px solid #ccc;
-    padding:15px;
-    margin-bottom:15px;
-    border-radius:8px;
-}
-
-.family h3{
-    margin-top:0;
-}
-
-#tree-container{
-    width:100%;
-}
-
-#treeSvg{
-    width:2400px;
-    height:1400px;
-}
-
-.person-box{
-    fill:white;
-    stroke:#2563eb;
-    stroke-width:2;
-}
-
-.person-text{
-    font-size:12px;
-    text-anchor:middle;
-}
-
-a{
-    color:#2563eb;
-    text-decoration:none;
-}
-
-a:hover{
-    text-decoration:underline;
-}
-
-ul{
+.tree-list{
+    list-style:none;
     padding-left:20px;
 }
 
-@media(max-width:900px){
+.tree-list ul{
+    list-style:none;
+    margin-left:20px;
+    padding-left:20px;
+    border-left:2px solid #cbd5e1;
+}
 
-    .container{
-        flex-direction:column;
-    }
+.tree-list li{
+    margin:8px 0;
+}
 
-    #details{
-        width:100%;
-        border-left:none;
-        border-top:1px solid #ddd;
-    }
+.tree-list a{
+    color:#1e3a8a;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.tree-list a:hover{
+    text-decoration:underline;
 }
