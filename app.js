@@ -83,10 +83,7 @@ function showPerson(id){
 
         <h2>${buildPersonName(p)}</h2>
 
-        <p>
-            <strong>ID:</strong>
-            ${p.id}
-        </p>
+        <p><strong>ID:</strong> ${p.id}</p>
 
         <p>
             <strong>Nascita:</strong>
@@ -255,57 +252,74 @@ function showTimeline(){
 
 function showDescendants(){
 
-    const root = findPerson("P100");
+    const rootId = "P100";
+
+    const root = findPerson(rootId);
 
     if(!root){
 
         document.getElementById("content").innerHTML =
-            "Capostipite non trovato";
+            "<h2>Capostipite non trovato</h2>";
 
         return;
     }
 
-    let html = `
+    function renderBranch(personId){
 
-        <h2>
+        const person = findPerson(personId);
 
-            Discendenza di
+        if(!person) return "";
 
-            ${buildPersonName(root)}
+        let html = `
+            <li>
 
-        </h2>
+                <a href="#"
+                   onclick="showPerson('${person.id}')">
 
-    `;
+                   ${buildPersonName(person)}
 
-    genealogy.families.forEach(f => {
+                </a>
+        `;
 
-        if(f.father === "P100"){
+        const family =
+            genealogy.families.find(
+                f => f.father === personId
+            );
+
+        if(family && family.children.length > 0){
 
             html += "<ul>";
 
-            f.children.forEach(id => {
+            family.children.forEach(childId => {
 
-                const child = findPerson(id);
+                html += renderBranch(childId);
 
-                if(child){
-
-                    html += `
-                        <li>
-
-                            <strong>
-
-                                ${buildPersonName(child)}
-
-                            </strong>
-
-                        </li>
-                    `;
-                }
             });
 
             html += "</ul>";
         }
-    });
+
+        html += "</li>";
+
+        return html;
+    }
+
+    const html = `
+
+        <h2>
+
+            Discendenza di
+            ${buildPersonName(root)}
+
+        </h2>
+
+        <ul class="tree-list">
+
+            ${renderBranch(rootId)}
+
+        </ul>
+
+    `;
 
     document.getElementById("content").innerHTML = html;
 }
@@ -361,8 +375,8 @@ function renderTree(){
         <h2>Vista Albero (beta)</h2>
 
         <p>
-            Nodo genealogico automatico
-            basato sul dataset.
+            Dataset genealogico caricato:
+            ${genealogy.persons.length} persone
         </p>
     `;
 
