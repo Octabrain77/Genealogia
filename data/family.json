@@ -1,35 +1,46 @@
 {
   "persons": [
     {
-      "id": "P100",
-      "givenName": "Giovanni",
-      "surname": "Cappello",
-      "birthYear": 1822,
-      "deathYear": 1904
+      "id":"P100",
+      "givenName":"Giovanni",
+      "surname":"Cappello",
+      "birthYear":1822,
+      "deathYear":1904
     },
+
     {
-      "id": "P101",
-      "givenName": "Caterina",
-      "surname": "Ballario",
-      "birthYear": 1825,
-      "deathYear": 1904
+      "id":"P101",
+      "givenName":"Caterina",
+      "surname":"Ballario",
+      "birthYear":1825,
+      "deathYear":1904
     },
+
     {
-      "id": "P1",
-      "givenName": "Giuseppe",
-      "surname": "Cappello",
-      "birthYear": 1863,
-      "birthApproximate": true
+      "id":"P1",
+      "givenName":"Giuseppe",
+      "surname":"Cappello",
+      "birthYear":1863,
+      "birthApproximate":true
+    },
+
+    {
+      "id":"P3",
+      "givenName":"Giovanni",
+      "surname":"Cappello",
+      "birthDate":"1891-04-01",
+      "deathYear":1962
+    },
+
+    {
+      "id":"P10",
+      "givenName":"Francesco Antonio Giuseppe",
+      "nickname":"Cichin",
+      "surname":"Cappello",
+      "birthDate":"1895-05-20",
+      "deathYear":1982
     }
   ],
-  "families": [
-    {
-      "id": "F1",
-      "father": "P100",
-      "mother": "P101",
-      "children": [
-        "P1"
-      ]
-    }
-  ]
+
+  "families":[]
 }
