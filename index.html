@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Genealogia Cappello</title>
+    <title>Genealogia Cappello</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -18,24 +19,58 @@
     <h1>Genealogia Cappello</h1>
 
     <div class="toolbar">
-        <button onclick="renderTree()">Albero</button>
+
+        <button onclick="showView('tree')">
+            Albero
+        </button>
+
+        <button onclick="showView('people')">
+            Persone
+        </button>
+
+        <button onclick="showView('families')">
+            Famiglie
+        </button>
+
+        <button onclick="showView('descendants')">
+            Discendenza
+        </button>
+
+        <button onclick="showView('timeline')">
+            Cronologia
+        </button>
+
+    </div>
+
+    <div class="search-bar">
+
+        <input
+            id="searchBox"
+            type="text"
+            placeholder="Cerca persona, cognome o soprannome..."
+            onkeyup="searchPeople()">
+
     </div>
 
 </header>
 
 <div class="container">
 
-    <div id="tree-container">
+    <main id="content">
 
-        <svg id="treeSvg"></svg>
+        <div id="tree-container">
 
-    </div>
+            <svg id="treeSvg"></svg>
+
+        </div>
+
+    </main>
 
     <aside id="details">
 
         <h2>Dettagli</h2>
 
-        <p>Seleziona una persona</p>
+        <p>Seleziona una persona.</p>
 
     </aside>
 
@@ -44,4 +79,5 @@
 <script src="app.js"></script>
 
 </body>
+
 </html>
