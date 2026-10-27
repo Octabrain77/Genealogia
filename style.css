@@ -1,49 +1,55 @@
-* {
-    box-sizing: border-box;
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f6f8;
+header{
+    background:#1f2937;
+    color:white;
+    padding:15px;
 }
 
-header {
-    background-color: #1f2937;
-    color: white;
-    padding: 20px;
+.toolbar button{
+    margin-right:10px;
 }
 
-header h1 {
-    margin: 0;
+.container{
+    display:flex;
+    height:calc(100vh - 80px);
 }
 
-.container {
-    display: flex;
-    min-height: calc(100vh - 90px);
+#tree-container{
+    flex:1;
+    overflow:auto;
+    background:#f3f4f6;
 }
 
-.tree {
-    flex: 1;
-    padding: 30px;
+#treeSvg{
+    width:2400px;
+    height:1400px;
 }
 
-#details {
-    width: 350px;
-    background: white;
-    border-left: 1px solid #ddd;
-    padding: 20px;
-    overflow-y: auto;
+#details{
+    width:350px;
+    border-left:1px solid #ddd;
+    padding:20px;
+    overflow:auto;
 }
 
-.person {
-    display: inline-block;
-    min-width: 220px;
-    padding: 12px;
-    margin: 10px;
-    text-align: center;
-    background: white;
-    border: 2px solid #2563eb;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1
+.person-box{
+    fill:white;
+    stroke:#2563eb;
+    stroke-width:2;
+    cursor:pointer;
+}
+
+.person-text{
+    font-size:12px;
+    text-anchor:middle;
+    pointer-events:none;
+}
+
+.link{
+    stroke:#444;
+    stroke-width:2;
+}
