@@ -1,138 +1,27 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Genealogia Cappello</title>
-
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genealogia Cappello</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
     <h1>Genealogia Cappello</h1>
-    <p>Archivio genealogico familiare</p>
+
+    <div class="toolbar">
+        <button onclick="showView('people')">Persone</button>
+        <button onclick="showView('tree')">Albero</button>
+        <button onclick="showView('timeline')">Cronologia</button>
+    </div>
 </header>
 
 <div class="container">
 
-    <main class="tree">
-
-        <h2>Capostipiti</h2>
-
-        <div class="person" data-id="P100">
-            Giovanni Cappello<br>
-            1822-1904
-        </div>
-
-        <div class="person" data-id="P101">
-            Caterina Ballario<br>
-            1825-1904
-        </div>
-
-        <h3>Figli</h3>
-
-        <div class="children">
-
-            <div class="person" data-id="P102">
-                Ferdinando<br>
-                1852-1932
-            </div>
-
-            <div class="person" data-id="P103">
-                Maria<br>
-                1860-1921
-            </div>
-
-            <div class="person" data-id="P1">
-                Giuseppe<br>
-                1863?
-            </div>
-
-            <div class="person" data-id="P104">
-                Vittorio<br>
-                1867-1938
-            </div>
-
-            <div class="person" data-id="P105">
-                Clotilde
-            </div>
-
-        </div>
-
-        <h2>Ramo Giuseppe Cappello</h2>
-
-        <div class="children">
-
-            <div class="person" data-id="P3">
-                Giovanni<br>
-                1891-1962
-            </div>
-
-            <div class="person" data-id="P10">
-                Francesco "Cichin"<br>
-                1895-1982
-            </div>
-
-            <div class="person" data-id="P12">
-                Clara
-            </div>
-
-            <div class="person" data-id="P13">
-                Carmela
-            </div>
-
-        </div>
-
-        <h3>Figli di Giovanni</h3>
-
-        <div class="children">
-
-            <div class="person" data-id="P6">
-                Giuseppe "Pinin"
-            </div>
-
-            <div class="person" data-id="P7">
-                Rosa "Magna"
-            </div>
-
-            <div class="person" data-id="P8">
-                Francesco "Barbacicu"
-            </div>
-
-            <div class="person" data-id="P9">
-                Angelo
-            </div>
-
-        </div>
-
-        <h3>Ramo Cichin</h3>
-
-        <div class="children">
-
-            <div class="person" data-id="P14">
-                Giuseppe<br>
-                1924-2014
-            </div>
-
-            <div class="person" data-id="P15">
-                Rosa Maria<br>
-                1927-2017
-            </div>
-
-        </div>
-
-        <div class="children">
-
-            <div class="person" data-id="P16">Fabrizio</div>
-            <div class="person" data-id="P17">Giovanni</div>
-            <div class="person" data-id="P18">Franca Maria</div>
-            <div class="person" data-id="P19">Piero</div>
-
-        </div>
-
+    <main id="content">
+        Caricamento...
     </main>
 
     <aside id="details">
