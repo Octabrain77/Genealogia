@@ -1,25 +1,223 @@
+/* RESET */
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f3f4f6;
+}
+
+/* HEADER */
+
+header{
+    background:#1f2937;
+    color:white;
+    padding:15px;
+}
+
+header h1{
+    margin:0 0 12px 0;
+}
+
+/* TOOLBAR */
+
+.toolbar{
+    margin-bottom:12px;
+}
+
+.toolbar button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:6px;
+    padding:8px 12px;
+    margin-right:8px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.toolbar button:hover{
+    background:#1d4ed8;
+}
+
+/* SEARCH */
+
+.search-bar{
+    margin-top:10px;
+}
+
+.search-bar input{
+    width:100%;
+    max-width:500px;
+    padding:10px;
+    border:1px solid #cbd5e1;
+    border-radius:6px;
+    font-size:14px;
+}
+
+/* LAYOUT */
+
+.container{
+    display:flex;
+    height:calc(100vh - 130px);
+}
+
+#content{
+    flex:1;
+    overflow:auto;
+    padding:20px;
+    background:#f1f5f9;
+}
+
+#details{
+    width:350px;
+    min-width:350px;
+    background:white;
+    border-left:1px solid #ddd;
+    padding:20px;
+    overflow:auto;
+}
+
+#details h2{
+    margin-top:0;
+}
+
+/* PERSONE */
+
+.person{
+    display:inline-block;
+    min-width:180px;
+    padding:12px;
+    margin:8px;
+    background:white;
+    border:2px solid #2563eb;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.2s;
+    vertical-align:top;
+}
+
+.person:hover{
+    background:#eff6ff;
+    transform:translateY(-2px);
+}
+
+/* FAMIGLIE */
+
+.family{
+    background:white;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+    padding:16px;
+    margin-bottom:20px;
+}
+
+.family h3{
+    margin-top:0;
+}
+
+/* LINK */
+
+a{
+    color:#1d4ed8;
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+/* LISTE */
+
+ul{
+    padding-left:20px;
+}
+
+/* DISCENDENZA GERARCHICA */
+
 .tree-list{
     list-style:none;
-    padding-left:20px;
+    padding-left:0;
+}
+
+.tree-list > li{
+    margin-left:0;
 }
 
 .tree-list ul{
     list-style:none;
+    margin-top:8px;
     margin-left:20px;
     padding-left:20px;
     border-left:2px solid #cbd5e1;
 }
 
 .tree-list li{
-    margin:8px 0;
+    margin:10px 0;
 }
 
 .tree-list a{
-    color:#1e3a8a;
     font-weight:bold;
-    text-decoration:none;
+    color:#1e3a8a;
 }
 
-.tree-list a:hover{
-    text-decoration:underline;
+/* SVG FUTURO */
+
+#tree-container{
+    width:100%;
+}
+
+#treeSvg{
+    width:2400px;
+    height:1400px;
+}
+
+.person-box{
+    fill:white;
+    stroke:#2563eb;
+    stroke-width:2;
+}
+
+.person-text{
+    font-size:12px;
+    text-anchor:middle;
+}
+
+.link{
+    stroke:#444;
+    stroke-width:2;
+}
+
+/* TIMELINE */
+
+.timeline-entry{
+    background:white;
+    border-left:4px solid #2563eb;
+    padding:10px;
+    margin-bottom:10px;
+}
+
+/* MOBILE */
+
+@media (max-width:900px){
+
+    .container{
+        flex-direction:column;
+        height:auto;
+    }
+
+    #details{
+        width:100%;
+        min-width:auto;
+        border-left:none;
+        border-top:1px solid #ddd;
+    }
+
+    .person{
+        width:100%;
+        max-width:none;
+    }
 }
