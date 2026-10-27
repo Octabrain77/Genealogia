@@ -1,53 +1,132 @@
-let people = [];
+let data = {};
 
 fetch("./data/family.json")
-  .then(response => response.json())
-  .then(data => {
-      people = data.persons;
-  });
+.then(r => r.json())
+.then(json => {
 
-document.addEventListener("click", function(event){
+    data = json;
 
-    const card = event.target.closest(".person");
+    showPeople();
 
-    if(!card) return;
-
-    const id = card.dataset.id;
-
-    const person = people.find(p => p.id === id);
-
-    if(!person) return;
-
-    let name = person.givenName;
-
-    if(person.nickname){
-        name += ' "' + person.nickname + '"';
-    }
-
-    if(person.surname){
-        name += ' ' + person.surname;
-    }
-
-    document.getElementById("details").innerHTML = `
-        <h2>${name}</h2>
-
-        <p><b>ID:</b> ${person.id}</p>
-
-        <p>
-            <b>Nascita:</b>
-            ${person.birthDate || person.birthYear || "Sconosciuta"}
-            ${person.birthApproximate ? " ?" : ""}
-        </p>
-
-        <p>
-            <b>Morte:</b>
-            ${person.deathDate || person.deathYear || "Sconosciuta"}
-        </p>
-
-        ${
-            person.notes
-            ? `<p><b>Note:</b> ${person.notes}</p>`
-            : ""
-        }
-    `;
 });
+
+function showView(name){
+
+    if(name === "people")
+        showPeople();
+
+    if(name === "tree")
+        showTree();
+
+    if(name === "timeline")
+        showTimeline();
+}
+
+function showPeople(){
+
+    const html =
+        data.persons
+        .map(p => {
+
+            return `
+                <div class="person"
+                     onclick="showPerson('${p.id}')">
+
+                    ${p.givenName}
+                    ${p.surname}
+
+                </div>
+            `;
+        })
+        .join("");
+
+    document.getElementById("content")
+        .innerHTML = html;
+}
+
+function showTree(){
+
+    const html =
+        data.families
+        .map(f => {
+
+            return `
+
+                <div class="family">
+
+                    <h3>${f.id}</h3>
+
+                    Padre: ${f.father}<br>
+                    Madre: ${f.mother}<br>
+
+                    Figli:
+                    ${f.children.join(", ")}
+
+                </div>
+
+            `;
+        })
+        .join("");
+
+    document.getElementById("content")
+        .innerHTML = html;
+}
+
+function showTimeline(){
+
+    const people = [...data.persons];
+
+    people.sort((a,b)=>
+        (a.birthYear || 9999)
+        -
+        (b.birthYear || 9999)
+    );
+
+    const html =
+        people
+        .map(p => {
+
+            return `
+                <div class="person">
+
+                    ${(p.birthYear || "")}
+                    ${p.givenName}
+                    ${p.surname}
+
+                </div>
+            `;
+        })
+        .join("");
+
+    document.getElementById("content")
+        .innerHTML = html;
+}
+
+function showPerson(id){
+
+    const p =
+        data.persons.find(x => x.id === id);
+
+    if(!p) return;
+
+    document
+      .getElementById("details")
+      .innerHTML = `
+
+        <h2>
+            ${p.givenName}
+            ${p.surname}
+        </h2>
+
+        <p>
+            Nascita:
+            ${p.birthDate || p.birthYear || "?"}
+        </p>
+
+        <p>
+            Morte:
+            ${p.deathDate || p.deathYear || "?"}
+        </p>
+
+      `;
+}
