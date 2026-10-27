@@ -1,132 +1,152 @@
-let data = {};
+let genealogy = {};
 
 fetch("./data/family.json")
 .then(r => r.json())
-.then(json => {
+.then(data => {
 
-    data = json;
+    genealogy = data;
 
-    showPeople();
+    renderTree();
 
 });
 
-function showView(name){
+function findPerson(id){
 
-    if(name === "people")
-        showPeople();
-
-    if(name === "tree")
-        showTree();
-
-    if(name === "timeline")
-        showTimeline();
-}
-
-function showPeople(){
-
-    const html =
-        data.persons
-        .map(p => {
-
-            return `
-                <div class="person"
-                     onclick="showPerson('${p.id}')">
-
-                    ${p.givenName}
-                    ${p.surname}
-
-                </div>
-            `;
-        })
-        .join("");
-
-    document.getElementById("content")
-        .innerHTML = html;
-}
-
-function showTree(){
-
-    const html =
-        data.families
-        .map(f => {
-
-            return `
-
-                <div class="family">
-
-                    <h3>${f.id}</h3>
-
-                    Padre: ${f.father}<br>
-                    Madre: ${f.mother}<br>
-
-                    Figli:
-                    ${f.children.join(", ")}
-
-                </div>
-
-            `;
-        })
-        .join("");
-
-    document.getElementById("content")
-        .innerHTML = html;
-}
-
-function showTimeline(){
-
-    const people = [...data.persons];
-
-    people.sort((a,b)=>
-        (a.birthYear || 9999)
-        -
-        (b.birthYear || 9999)
+    return genealogy.persons.find(
+        p => p.id === id
     );
 
-    const html =
-        people
-        .map(p => {
-
-            return `
-                <div class="person">
-
-                    ${(p.birthYear || "")}
-                    ${p.givenName}
-                    ${p.surname}
-
-                </div>
-            `;
-        })
-        .join("");
-
-    document.getElementById("content")
-        .innerHTML = html;
 }
 
 function showPerson(id){
 
-    const p =
-        data.persons.find(x => x.id === id);
+    const p = findPerson(id);
 
     if(!p) return;
 
-    document
-      .getElementById("details")
-      .innerHTML = `
+    let name = p.givenName;
 
-        <h2>
-            ${p.givenName}
-            ${p.surname}
-        </h2>
+    if(p.nickname){
+
+        name += ' "' + p.nickname + '"';
+
+    }
+
+    if(p.surname){
+
+        name += ' ' + p.surname;
+
+    }
+
+    document.getElementById("details").innerHTML = `
+
+        <h2>${name}</h2>
 
         <p>
-            Nascita:
+            <b>Nascita:</b>
             ${p.birthDate || p.birthYear || "?"}
         </p>
 
         <p>
-            Morte:
+            <b>Morte:</b>
             ${p.deathDate || p.deathYear || "?"}
         </p>
 
-      `;
+        <p>
+            ${p.notes || ""}
+        </p>
+
+    `;
+}
+
+function renderTree(){
+
+    const svg =
+        document.getElementById("treeSvg");
+
+    svg.innerHTML = "";
+
+    const boxWidth = 140;
+    const boxHeight = 55;
+
+    genealogy.persons.forEach((person,index)=>{
+
+        const x =
+            50 + (index % 6) * 220;
+
+        const y =
+            50 + Math.floor(index/6)*120;
+
+        const group =
+            document.createElementNS(
+                "http://www.w3.org/2000/svg",
+                "g"
+            );
+
+        const rect =
+            document.createElementNS(
+                "http://www.w3.org/2000/svg",
+                "rect"
+            );
+
+        rect.setAttribute("x",x);
+        rect.setAttribute("y",y);
+
+        rect.setAttribute("width",boxWidth);
+        rect.setAttribute("height",boxHeight);
+
+        rect.setAttribute(
+            "class",
+            "person-box"
+        );
+
+        rect.addEventListener(
+            "click",
+            ()=>showPerson(person.id)
+        );
+
+        group.appendChild(rect);
+
+        const text =
+            document.createElementNS(
+                "http://www.w3.org/2000/svg",
+                "text"
+            );
+
+        text.setAttribute(
+            "x",
+            x + boxWidth/2
+        );
+
+        text.setAttribute(
+            "y",
+            y + 24
+        );
+
+        text.setAttribute(
+            "class",
+            "person-text"
+        );
+
+        let label =
+            person.givenName;
+
+        if(person.nickname){
+
+            label +=
+              ' "' +
+              person.nickname +
+              '"';
+
+        }
+
+        text.textContent =
+            label;
+
+        group.appendChild(text);
+
+        svg.appendChild(group);
+
+    });
+
 }
