@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genealogia Cappello</title>
-    <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Genealogia Cappello</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
 <header>
+
     <h1>Genealogia Cappello</h1>
 
     <div class="toolbar">
-        <button onclick="showView('people')">Persone</button>
-        <button onclick="showView('tree')">Albero</button>
-        <button onclick="showView('timeline')">Cronologia</button>
+        <button onclick="renderTree()">Albero</button>
     </div>
+
 </header>
 
 <div class="container">
 
-    <main id="content">
-        Caricamento...
-    </main>
+    <div id="tree-container">
+
+        <svg id="treeSvg"></svg>
+
+    </div>
 
     <aside id="details">
+
         <h2>Dettagli</h2>
-        <p>Seleziona una persona.</p>
+
+        <p>Seleziona una persona</p>
+
     </aside>
 
 </div>
