@@ -1,13 +1,24 @@
-let genealogy = {};
+let genealogy = {
+    persons: [],
+    families: [],
+    sources: []
+};
 
 fetch("./data/family.json")
-.then(r => r.json())
+.then(response => response.json())
 .then(data => {
 
     genealogy = data;
 
     renderTree();
 
+})
+.catch(error => {
+
+    console.error("Errore caricamento JSON", error);
+
+    document.getElementById("content").innerHTML =
+        "<h2>Errore caricamento dati genealogici</h2>";
 });
 
 function findPerson(id){
@@ -15,16 +26,11 @@ function findPerson(id){
     return genealogy.persons.find(
         p => p.id === id
     );
-
 }
 
-function showPerson(id){
+function buildPersonName(p){
 
-    const p = findPerson(id);
-
-    if(!p) return;
-
-    let name = p.givenName;
+    let name = p.givenName || "";
 
     if(p.nickname){
 
@@ -34,119 +40,342 @@ function showPerson(id){
 
     if(p.surname){
 
-        name += ' ' + p.surname;
+        name += " " + p.surname;
 
     }
 
+    return name;
+}
+
+function showView(view){
+
+    switch(view){
+
+        case "tree":
+            renderTree();
+            break;
+
+        case "people":
+            showPeople();
+            break;
+
+        case "families":
+            showFamilies();
+            break;
+
+        case "descendants":
+            showDescendants();
+            break;
+
+        case "timeline":
+            showTimeline();
+            break;
+    }
+}
+
+function showPerson(id){
+
+    const p = findPerson(id);
+
+    if(!p) return;
+
     document.getElementById("details").innerHTML = `
 
-        <h2>${name}</h2>
+        <h2>${buildPersonName(p)}</h2>
 
         <p>
-            <b>Nascita:</b>
-            ${p.birthDate || p.birthYear || "?"}
+            <strong>ID:</strong>
+            ${p.id}
         </p>
 
         <p>
-            <b>Morte:</b>
-            ${p.deathDate || p.deathYear || "?"}
+            <strong>Nascita:</strong>
+            ${p.birthDate || p.birthYear || "Sconosciuta"}
+            ${p.birthApproximate ? " ?" : ""}
         </p>
 
         <p>
-            ${p.notes || ""}
+            <strong>Morte:</strong>
+            ${p.deathDate || p.deathYear || "Sconosciuta"}
         </p>
+
+        ${
+            p.alternateSurname
+            ? `
+                <p>
+                    <strong>Variante cognome:</strong>
+                    ${p.alternateSurname}
+                </p>
+              `
+            : ""
+        }
+
+        ${
+            p.notes
+            ? `
+                <p>
+                    <strong>Note:</strong><br>
+                    ${p.notes}
+                </p>
+              `
+            : ""
+        }
 
     `;
 }
 
-function renderTree(){
+function showPeople(){
 
-    const svg =
-        document.getElementById("treeSvg");
+    const html =
+        genealogy.persons.map(p => `
 
-    svg.innerHTML = "";
+            <div class="person"
+                 onclick="showPerson('${p.id}')">
 
-    const boxWidth = 140;
-    const boxHeight = 55;
+                ${buildPersonName(p)}
 
-    genealogy.persons.forEach((person,index)=>{
+            </div>
 
-        const x =
-            50 + (index % 6) * 220;
+        `).join("");
 
-        const y =
-            50 + Math.floor(index/6)*120;
+    document.getElementById("content").innerHTML = html;
+}
 
-        const group =
-            document.createElementNS(
-                "http://www.w3.org/2000/svg",
-                "g"
-            );
+function showFamilies(){
 
-        const rect =
-            document.createElementNS(
-                "http://www.w3.org/2000/svg",
-                "rect"
-            );
+    let html = "<h2>Famiglie</h2>";
 
-        rect.setAttribute("x",x);
-        rect.setAttribute("y",y);
+    genealogy.families.forEach(f => {
 
-        rect.setAttribute("width",boxWidth);
-        rect.setAttribute("height",boxHeight);
+        const father = findPerson(f.father);
+        const mother = findPerson(f.mother);
 
-        rect.setAttribute(
-            "class",
-            "person-box"
-        );
+        html += `
 
-        rect.addEventListener(
-            "click",
-            ()=>showPerson(person.id)
-        );
+            <div class="family">
 
-        group.appendChild(rect);
+                <h3>${f.id}</h3>
 
-        const text =
-            document.createElementNS(
-                "http://www.w3.org/2000/svg",
-                "text"
-            );
+                <p>
+                    <strong>Padre:</strong>
+                    ${father ? buildPersonName(father) : "-"}
+                </p>
 
-        text.setAttribute(
-            "x",
-            x + boxWidth/2
-        );
+                <p>
+                    <strong>Madre:</strong>
+                    ${mother ? buildPersonName(mother) : "-"}
+                </p>
 
-        text.setAttribute(
-            "y",
-            y + 24
-        );
+                <strong>Figli:</strong>
 
-        text.setAttribute(
-            "class",
-            "person-text"
-        );
+                <ul>
 
-        let label =
-            person.givenName;
+        `;
 
-        if(person.nickname){
+        f.children.forEach(childId => {
 
-            label +=
-              ' "' +
-              person.nickname +
-              '"';
+            const child = findPerson(childId);
 
-        }
+            if(child){
 
-        text.textContent =
-            label;
+                html += `
+                    <li>
 
-        group.appendChild(text);
+                        <a href="#"
+                           onclick="showPerson('${child.id}')">
 
-        svg.appendChild(group);
+                            ${buildPersonName(child)}
+
+                        </a>
+
+                    </li>
+                `;
+            }
+        });
+
+        html += `
+                </ul>
+            </div>
+        `;
+    });
+
+    document.getElementById("content").innerHTML = html;
+}
+
+function showTimeline(){
+
+    const people =
+        [...genealogy.persons];
+
+    people.sort((a,b)=>{
+
+        const yearA =
+            a.birthYear ||
+            (a.birthDate
+            ? parseInt(a.birthDate.substring(0,4))
+            : 9999);
+
+        const yearB =
+            b.birthYear ||
+            (b.birthDate
+            ? parseInt(b.birthDate.substring(0,4))
+            : 9999);
+
+        return yearA - yearB;
 
     });
 
+    const html =
+        people.map(p => {
+
+            const year =
+                p.birthYear ||
+                p.birthDate ||
+                "?";
+
+            return `
+
+                <div class="person"
+                     onclick="showPerson('${p.id}')">
+
+                    <strong>${year}</strong>
+
+                    <br>
+
+                    ${buildPersonName(p)}
+
+                </div>
+
+            `;
+        }).join("");
+
+    document.getElementById("content").innerHTML =
+        "<h2>Cronologia</h2>" + html;
+}
+
+function showDescendants(){
+
+    const root = findPerson("P100");
+
+    if(!root){
+
+        document.getElementById("content").innerHTML =
+            "Capostipite non trovato";
+
+        return;
+    }
+
+    let html = `
+
+        <h2>
+
+            Discendenza di
+
+            ${buildPersonName(root)}
+
+        </h2>
+
+    `;
+
+    genealogy.families.forEach(f => {
+
+        if(f.father === "P100"){
+
+            html += "<ul>";
+
+            f.children.forEach(id => {
+
+                const child = findPerson(id);
+
+                if(child){
+
+                    html += `
+                        <li>
+
+                            <strong>
+
+                                ${buildPersonName(child)}
+
+                            </strong>
+
+                        </li>
+                    `;
+                }
+            });
+
+            html += "</ul>";
+        }
+    });
+
+    document.getElementById("content").innerHTML = html;
+}
+
+function searchPeople(){
+
+    const query =
+        document
+        .getElementById("searchBox")
+        .value
+        .toLowerCase();
+
+    if(query.trim() === ""){
+
+        showPeople();
+
+        return;
+    }
+
+    const results =
+        genealogy.persons.filter(p => {
+
+            const text =
+                (
+                    (p.givenName || "") +
+                    " " +
+                    (p.surname || "") +
+                    " " +
+                    (p.nickname || "") +
+                    " " +
+                    (p.alternateSurname || "")
+                ).toLowerCase();
+
+            return text.includes(query);
+        });
+
+    document.getElementById("content").innerHTML =
+        results.map(p => `
+
+            <div class="person"
+                 onclick="showPerson('${p.id}')">
+
+                ${buildPersonName(p)}
+
+            </div>
+
+        `).join("");
+}
+
+function renderTree(){
+
+    let html = `
+        <h2>Vista Albero (beta)</h2>
+
+        <p>
+            Nodo genealogico automatico
+            basato sul dataset.
+        </p>
+    `;
+
+    html += genealogy.persons.map(p => `
+
+        <div class="person"
+             onclick="showPerson('${p.id}')">
+
+            ${buildPersonName(p)}
+
+        </div>
+
+    `).join("");
+
+    document.getElementById("content").innerHTML = html;
 }
