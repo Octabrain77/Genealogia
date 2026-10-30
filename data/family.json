@@ -47,13 +47,16 @@
     },
 
     {
-      "id": "P1",
-      "givenName": "Giuseppe",
-      "surname": "Cappello",
-      "alternateSurname": "Cap(p)ello",
-      "birthYear": 1863,
-      "birthApproximate": true
-    },
+  "id": "P1",
+  "givenName": "Giuseppe Angelo Francesco",
+  "surname": "Cappello",
+  "alternateSurnames": [
+    "Capello",
+    "Cap(p)ello"
+  ],
+  "birthDate": "1863-08-03",
+  "notes": "Negli atti compare spesso come Capello. Nelle firme autografe compare frequentemente come Cappello."
+},
     {
       "id": "P2",
       "givenName": "Rosa",
@@ -109,12 +112,16 @@
     },
 
     {
-      "id": "P3",
-      "givenName": "Giovanni",
-      "surname": "Cappello",
-      "birthDate": "1891-04-01",
-      "deathYear": 1962
-    },
+  "id": "P3",
+  "givenName": "Giovanni Luigi Giuseppe",
+  "surname": "Cappello",
+  "alternateSurnames": [
+    "Capello"
+  ],
+  "birthDate": "1891-04-01",
+  "deathYear": 1962,
+  "notes": "Sposò Maria Bobba il 06/01/1913."
+},
 
     {
       "id": "P4",
@@ -125,13 +132,17 @@
     },
 
     {
-      "id": "P10",
-      "givenName": "Francesco Antonio Giuseppe",
-      "nickname": "Cichin",
-      "surname": "Cappello",
-      "birthDate": "1895-05-20",
-      "deathYear": 1982
-    },
+  "id": "P10",
+  "givenName": "Francesco Antonio Giuseppe",
+  "nickname": "Cichin",
+  "surname": "Cappello",
+  "alternateSurnames": [
+    "Capello"
+  ],
+  "birthDate": "1895-02-28",
+  "deathYear": 1982,
+  "notes": "Sposò Teresa Francesca Ermelinda Zoppi il 28/12/1923 presso San Pietro di Asti."
+},
 
     {
       "id": "P11",
@@ -140,17 +151,15 @@
     },
 
     {
-      "id": "P12",
-      "givenName": "Clara",
-      "surname": "Cappello",
-      "notes": "Viveva presso l'Istituto dei Caissotti."
-    },
-
-    {
-      "id": "P13",
-      "givenName": "Carmela",
-      "surname": "Cappello"
-    },
+  "id": "P12",
+  "givenName": "Clara Catterina Maria",
+  "surname": "Cappello",
+  "alternateSurnames": [
+    "Capello"
+  ],
+  "birthDate": "1886-02-07",
+  "notes": "Viveva presso l'Istituto dei Caissotti."
+},
 
     {
       "id": "P5",
@@ -240,6 +249,22 @@
 
   "families": [
     {
+  "id": "F0",
+  "father": "P200",
+  "mother": "P201",
+  "children": [
+    "P100"
+  ]
+},
+{
+  "id": "F00",
+  "father": "P202",
+  "mother": "P203",
+  "children": [
+    "P101"
+  ]
+},
+    {
       "id": "F1",
       "father": "P100",
       "mother": "P101",
@@ -262,17 +287,18 @@
       ]
     },
 
-    {
-      "id": "F3",
-      "father": "P1",
-      "mother": "P2",
-      "children": [
-        "P3",
-        "P10",
-        "P12",
-        "P13"
-      ]
-    },
+   {
+  "id": "F3",
+  "father": "P1",
+  "mother": "P2",
+  "children": [
+    "P12",
+    "P205",
+    "P206",
+    "P3",
+    "P10"
+  ]
+},
 
     {
       "id": "F4",
