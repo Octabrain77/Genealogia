@@ -300,6 +300,97 @@ function showDescendants(){
         if(!person) return "";
 
         let html = `
+
+            <li>
+
+                <span
+                    class="tree-person"
+                    onclick="showPerson('${person.id}')">
+
+                    ${buildPersonName(person)}
+
+                </span>
+
+                <span class="tree-dates">
+
+                    ${getLifeSpan(person)}
+
+                </span>
+
+        `;
+
+        const family =
+            genealogy.families.find(
+                f => f.father === personId
+            );
+
+        if(family && family.children.length > 0){
+
+            html += "<ul>";
+
+            family.children.forEach(childId => {
+
+                html += renderBranch(childId);
+
+            });
+
+            html += "</ul>";
+        }
+
+        html += "</li>";
+
+        return html;
+    }
+
+    document.getElementById("content").innerHTML = `
+
+        <div class="tree-toolbar">
+
+            <button onclick="zoomTree(1.2)">
+                +
+            </button>
+
+            <button onclick="zoomTree(0.8)">
+                -
+            </button>
+
+            <button onclick="resetTree()">
+                Reset
+            </button>
+
+        </div>
+
+        <div id="treeViewport">
+
+            <div id="treeContent">
+
+                <h2>
+                    Discendenza di
+                    ${buildPersonName(root)}
+                </h2>
+
+                <ul class="tree-list">
+
+                    ${renderBranch(rootId)}
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    `;
+
+    initializeTreePan();
+}
+
+    function renderBranch(personId){
+
+        const person = findPerson(personId);
+
+        if(!person) return "";
+
+        let html = `
             <li>
 
                 <span
