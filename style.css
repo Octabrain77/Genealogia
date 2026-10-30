@@ -221,3 +221,47 @@ ul{
         max-width:none;
     }
 }
+/* DISCENDENZA */
+
+#treeViewport{
+    width:100%;
+    height:100%;
+    overflow:auto;
+}
+
+#treeContent{
+    min-width:1200px;
+    padding:20px;
+}
+
+.tree-person{
+    cursor:pointer;
+    font-weight:bold;
+    color:#1e3a8a;
+}
+
+.tree-person:hover{
+    text-decoration:underline;
+}
+
+.tree-dates{
+    color:#666;
+    margin-left:8px;
+    font-size:0.9em;
+}
+
+.tree-list{
+    list-style:none;
+    padding-left:20px;
+}
+
+.tree-list ul{
+    list-style:none;
+    margin-left:20px;
+    padding-left:20px;
+    border-left:2px solid #cbd5e1;
+}
+
+.tree-list li{
+    margin:10px 0;
+}
