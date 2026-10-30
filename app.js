@@ -299,25 +299,29 @@ function showDescendants(){
 
         if(!person) return "";
 
-        let html = `
+let html = `
 
-            <li>
+    <li>
 
-                <span
-                    class="tree-person"
-                    onclick="showPerson('${person.id}')">
+        <div
+            class="tree-card"
+            onclick="showPerson('${person.id}')">
 
-                    ${buildPersonName(person)}
+            <div class="tree-card-name">
 
-                </span>
+                ${buildPersonName(person)}
 
-                <span class="tree-dates">
+            </div>
 
-                    ${getLifeSpan(person)}
+            <div class="tree-card-dates">
 
-                </span>
+                ${getLifeSpan(person)}
 
-        `;
+            </div>
+
+        </div>
+
+`;
 
         const family =
             genealogy.families.find(
