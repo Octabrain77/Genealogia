@@ -526,3 +526,103 @@ function renderTree(){
 
     document.getElementById("content").innerHTML = html;
 }
+let treeScale = 1;
+
+function zoomTree(factor){
+
+    treeScale *= factor;
+
+    if(treeScale < 0.3){
+
+        treeScale = 0.3;
+    }
+
+    if(treeScale > 5){
+
+        treeScale = 5;
+    }
+
+    updateTreeTransform();
+}
+
+function resetTree(){
+
+    treeScale = 1;
+
+    treeTranslateX = 0;
+    treeTranslateY = 0;
+
+    updateTreeTransform();
+}
+
+let treeTranslateX = 0;
+let treeTranslateY = 0;
+
+function updateTreeTransform(){
+
+    const tree =
+        document.getElementById("treeContent");
+
+    if(!tree) return;
+
+    tree.style.transform =
+        `translate(${treeTranslateX}px, ${treeTranslateY}px) scale(${treeScale})`;
+}
+
+function initializeTreePan(){
+
+    const viewport =
+        document.getElementById("treeViewport");
+
+    if(!viewport) return;
+
+    let isDragging = false;
+
+    let startX = 0;
+    let startY = 0;
+
+    viewport.onmousedown = function(e){
+
+        isDragging = true;
+
+        startX =
+            e.clientX - treeTranslateX;
+
+        startY =
+            e.clientY - treeTranslateY;
+    };
+
+    window.onmouseup = function(){
+
+        isDragging = false;
+    };
+
+    window.onmousemove = function(e){
+
+        if(!isDragging) return;
+
+        treeTranslateX =
+            e.clientX - startX;
+
+        treeTranslateY =
+            e.clientY - startY;
+
+        updateTreeTransform();
+    };
+
+    viewport.onwheel = function(e){
+
+        e.preventDefault();
+
+        if(e.deltaY < 0){
+
+            zoomTree(1.1);
+
+        }else{
+
+            zoomTree(0.9);
+        }
+    };
+
+    updateTreeTransform();
+}
