@@ -245,7 +245,47 @@
       "givenName": "Franca Maria",
       "surname": "Cappello"
     },
-
+{
+  "id": "P200",
+  "givenName": "Giuseppe",
+  "surname": "Cappello",
+  "notes": "Coniuge Teresa Vogliolo."
+},
+{
+  "id": "P201",
+  "givenName": "Teresa",
+  "surname": "Vogliolo"
+},
+{
+  "id": "P202",
+  "givenName": "Giuseppe",
+  "surname": "Ballario"
+},
+{
+  "id": "P203",
+  "givenName": "Angela",
+  "surname": "Rivella"
+},
+{
+  "id": "P205",
+  "givenName": "Catterina Angiolina Maria",
+  "surname": "Cappello",
+  "alternateSurnames": [
+    "Capello"
+  ],
+  "birthDate": "1887-06-24",
+  "notes": "Sposò Ferrero Edoardo il 18/09/1913 a Villa San Secondo."
+},
+{
+  "id": "P206",
+  "givenName": "Maria Carmela Giuseppina",
+  "surname": "Cappello",
+  "alternateSurnames": [
+    "Capello"
+  ],
+  "birthDate": "1889-04-28",
+  "notes": "Sposò Michele Martinelli (?) il 25/02/1927 a San Martino Asti."
+},
     {
       "id": "P19",
       "givenName": "Piero",
