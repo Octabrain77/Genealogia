@@ -295,3 +295,30 @@ ul{
     margin-left:8px;
     font-size:0.9em;
 }
+.tree-toolbar{
+    margin-bottom:10px;
+}
+
+.tree-toolbar button{
+    margin-right:8px;
+}
+
+#treeViewport{
+    width:100%;
+    height:calc(100vh - 250px);
+    overflow:hidden;
+    border:1px solid #ddd;
+    background:white;
+    cursor:grab;
+}
+
+#treeViewport:active{
+    cursor:grabbing;
+}
+
+#treeContent{
+    width:max-content;
+    min-width:1200px;
+    padding:30px;
+    transform-origin:0 0;
+}
