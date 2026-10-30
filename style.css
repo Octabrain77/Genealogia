@@ -149,10 +149,9 @@ ul{
 
 .tree-list ul{
     list-style:none;
-    margin-top:8px;
-    margin-left:20px;
-    padding-left:20px;
-    border-left:2px solid #cbd5e1;
+    margin-left:25px;
+    padding-left:25px;
+    border-left:3px solid #cbd5e1;
 }
 
 .tree-list li{
@@ -257,9 +256,9 @@ ul{
 
 .tree-list ul{
     list-style:none;
-    margin-left:20px;
-    padding-left:20px;
-    border-left:2px solid #cbd5e1;
+    margin-left:25px;
+    padding-left:25px;
+    border-left:3px solid #cbd5e1;
 }
 
 .tree-list li{
@@ -321,4 +320,35 @@ ul{
     min-width:1200px;
     padding:30px;
     transform-origin:0 0;
+}
+/* CARD GENEALOGICHE */
+
+.tree-card{
+    display:inline-block;
+    min-width:220px;
+    padding:12px;
+    margin:4px 0;
+    background:white;
+    border:2px solid #2563eb;
+    border-radius:10px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.08);
+    cursor:pointer;
+    transition:all 0.2s ease;
+}
+
+.tree-card:hover{
+    background:#eff6ff;
+    transform:translateY(-2px);
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+.tree-card-name{
+    font-weight:bold;
+    color:#1e3a8a;
+}
+
+.tree-card-dates{
+    margin-top:4px;
+    font-size:0.9em;
+    color:#666;
 }
