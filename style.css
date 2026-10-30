@@ -265,3 +265,33 @@ ul{
 .tree-list li{
     margin:10px 0;
 }
+/* PAN & ZOOM VIEWPORT */
+
+#treeViewport{
+    width:100%;
+    height:calc(100vh - 220px);
+    overflow:auto;
+    border:1px solid #ddd;
+    background:white;
+}
+
+#treeContent{
+    min-width:1400px;
+    padding:30px;
+}
+
+.tree-person{
+    cursor:pointer;
+    font-weight:bold;
+    color:#1e3a8a;
+}
+
+.tree-person:hover{
+    text-decoration:underline;
+}
+
+.tree-dates{
+    color:#666;
+    margin-left:8px;
+    font-size:0.9em;
+}
