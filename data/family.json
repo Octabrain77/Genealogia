@@ -1,19 +1,25 @@
 {
   "persons": [
     {
-      "id": "P100",
-      "givenName": "Giovanni",
-      "surname": "Cappello",
-      "birthYear": 1822,
-      "deathYear": 1904
-    },
+  "id": "P100",
+  "givenName": "Giovanni",
+  "surname": "Cappello",
+  "alternateSurnames": [
+    "Capello"
+  ],
+  "birthYear": 1822,
+  "deathDate": "1904-03-28",
+  "notes": "Ortolano. Figlio di Giuseppe Cappello e Teresa Vogliolo. Vedovo di Caterina Ballario. Morì il 28/03/1904, lo stesso giorno della moglie."
+}
+,
     {
-      "id": "P101",
-      "givenName": "Caterina",
-      "surname": "Ballario",
-      "birthYear": 1825,
-      "deathYear": 1904
-    },
+  "id": "P101",
+  "givenName": "Caterina",
+  "surname": "Ballario",
+  "birthYear": 1825,
+  "deathDate": "1904-03-28",
+  "notes": "Ortolana. Figlia di Giuseppe Ballario e Angela Rivella. Morì il 28/03/1904, lo stesso giorno del marito Giovanni Cappello."
+},
 
     {
       "id": "P102",
