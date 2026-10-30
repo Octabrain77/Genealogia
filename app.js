@@ -264,6 +264,94 @@ function showDescendants(){
         return;
     }
 
+    function getLifeSpan(person){
+
+        const birth =
+            person.birthYear ||
+            (person.birthDate
+                ? person.birthDate.substring(0,4)
+                : "?");
+
+        const death =
+            person.deathYear ||
+            (person.deathDate
+                ? person.deathDate.substring(0,4)
+                : "");
+
+        return death
+            ? `(${birth}-${death})`
+            : `(${birth})`;
+    }
+
+    function renderBranch(personId){
+
+        const person = findPerson(personId);
+
+        if(!person) return "";
+
+        let html = `
+            <li>
+
+                <span
+                    class="tree-person"
+                    onclick="showPerson('${person.id}')">
+
+                    ${buildPersonName(person)}
+
+                </span>
+
+                <span class="tree-dates">
+                    ${getLifeSpan(person)}
+                </span>
+        `;
+
+        const family =
+            genealogy.families.find(
+                f => f.father === personId
+            );
+
+        if(family && family.children.length > 0){
+
+            html += `<ul>`;
+
+            family.children.forEach(childId => {
+
+                html += renderBranch(childId);
+
+            });
+
+            html += `</ul>`;
+        }
+
+        html += `</li>`;
+
+        return html;
+    }
+
+    document.getElementById("content").innerHTML = `
+
+        <div id="treeViewport">
+
+            <div id="treeContent">
+
+                <h2>
+                    Discendenza di
+                    ${buildPersonName(root)}
+                </h2>
+
+                <ul class="tree-list">
+
+                    ${renderBranch(rootId)}
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    `;
+}
+
     function renderBranch(personId){
 
         const person = findPerson(personId);
