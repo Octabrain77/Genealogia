@@ -35,16 +35,33 @@ function buildPersonName(p){
     if(p.nickname){
 
         name += ' "' + p.nickname + '"';
-
     }
 
     if(p.surname){
 
         name += " " + p.surname;
-
     }
 
     return name;
+}
+
+function getLifeSpan(person){
+
+    const birth =
+        person.birthYear ||
+        (person.birthDate
+            ? person.birthDate.substring(0,4)
+            : "?");
+
+    const death =
+        person.deathYear ||
+        (person.deathDate
+            ? person.deathDate.substring(0,4)
+            : "");
+
+    return death
+        ? `(${birth}-${death})`
+        : `(${birth})`;
 }
 
 function showView(view){
@@ -83,7 +100,10 @@ function showPerson(id){
 
         <h2>${buildPersonName(p)}</h2>
 
-        <p><strong>ID:</strong> ${p.id}</p>
+        <p>
+            <strong>ID:</strong>
+            ${p.id}
+        </p>
 
         <p>
             <strong>Nascita:</strong>
@@ -103,7 +123,18 @@ function showPerson(id){
                     <strong>Variante cognome:</strong>
                     ${p.alternateSurname}
                 </p>
-              `
+            `
+            : ""
+        }
+
+        ${
+            p.alternateSurnames
+            ? `
+                <p>
+                    <strong>Varianti cognome:</strong>
+                    ${p.alternateSurnames.join(", ")}
+                </p>
+            `
             : ""
         }
 
@@ -114,7 +145,7 @@ function showPerson(id){
                     <strong>Note:</strong><br>
                     ${p.notes}
                 </p>
-              `
+            `
             : ""
         }
 
@@ -166,7 +197,6 @@ function showFamilies(){
                 <strong>Figli:</strong>
 
                 <ul>
-
         `;
 
         f.children.forEach(childId => {
@@ -201,22 +231,21 @@ function showFamilies(){
 
 function showTimeline(){
 
-    const people =
-        [...genealogy.persons];
+    const people = [...genealogy.persons];
 
     people.sort((a,b)=>{
 
         const yearA =
             a.birthYear ||
             (a.birthDate
-            ? parseInt(a.birthDate.substring(0,4))
-            : 9999);
+                ? parseInt(a.birthDate.substring(0,4))
+                : 9999);
 
         const yearB =
             b.birthYear ||
             (b.birthDate
-            ? parseInt(b.birthDate.substring(0,4))
-            : 9999);
+                ? parseInt(b.birthDate.substring(0,4))
+                : 9999);
 
         return yearA - yearB;
 
@@ -264,25 +293,6 @@ function showDescendants(){
         return;
     }
 
-    function getLifeSpan(person){
-
-        const birth =
-            person.birthYear ||
-            (person.birthDate
-                ? person.birthDate.substring(0,4)
-                : "?");
-
-        const death =
-            person.deathYear ||
-            (person.deathDate
-                ? person.deathDate.substring(0,4)
-                : "");
-
-        return death
-            ? `(${birth}-${death})`
-            : `(${birth})`;
-    }
-
     function renderBranch(personId){
 
         const person = findPerson(personId);
@@ -301,72 +311,10 @@ function showDescendants(){
                 </span>
 
                 <span class="tree-dates">
+
                     ${getLifeSpan(person)}
+
                 </span>
-        `;
-
-        const family =
-            genealogy.families.find(
-                f => f.father === personId
-            );
-
-        if(family && family.children.length > 0){
-
-            html += `<ul>`;
-
-            family.children.forEach(childId => {
-
-                html += renderBranch(childId);
-
-            });
-
-            html += `</ul>`;
-        }
-
-        html += `</li>`;
-
-        return html;
-    }
-
-    document.getElementById("content").innerHTML = `
-
-        <div id="treeViewport">
-
-            <div id="treeContent">
-
-                <h2>
-                    Discendenza di
-                    ${buildPersonName(root)}
-                </h2>
-
-                <ul class="tree-list">
-
-                    ${renderBranch(rootId)}
-
-                </ul>
-
-            </div>
-
-        </div>
-
-    `;
-}
-
-    function renderBranch(personId){
-
-        const person = findPerson(personId);
-
-        if(!person) return "";
-
-        let html = `
-            <li>
-
-                <a href="#"
-                   onclick="showPerson('${person.id}')">
-
-                   ${buildPersonName(person)}
-
-                </a>
         `;
 
         const family =
@@ -392,24 +340,30 @@ function showDescendants(){
         return html;
     }
 
-    const html = `
+    document.getElementById("content").innerHTML = `
 
-        <h2>
+        <div id="treeViewport">
 
-            Discendenza di
-            ${buildPersonName(root)}
+            <div id="treeContent">
 
-        </h2>
+                <h2>
 
-        <ul class="tree-list">
+                    Discendenza di
+                    ${buildPersonName(root)}
 
-            ${renderBranch(rootId)}
+                </h2>
 
-        </ul>
+                <ul class="tree-list">
+
+                    ${renderBranch(rootId)}
+
+                </ul>
+
+            </div>
+
+        </div>
 
     `;
-
-    document.getElementById("content").innerHTML = html;
 }
 
 function searchPeople(){
