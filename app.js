@@ -293,18 +293,51 @@ function showDescendants(){
         return;
     }
 
-    function renderBranch(personId){
+    function renderBranch(personId, generation){
 
         const person = findPerson(personId);
 
         if(!person) return "";
 
+        const family =
+    genealogy.families.find(
+        f => f.father === personId
+    );
+
+const hasChildren =
+    family &&
+    family.children &&
+    family.children.length > 0;
+
+const collapsed =
+    collapsedBranches[personId];
+
 let html = `
 
-    <li>
+<li>
+
+    <div class="tree-row">
+
+        ${
+            hasChildren
+            ? `
+                <span
+                    class="tree-toggle"
+                    onclick="toggleBranch('${personId}')">
+
+                    ${collapsed ? "▶" : "▼"}
+
+                </span>
+            `
+            : `
+                <span class="tree-toggle-empty">
+                    •
+                </span>
+            `
+        }
 
         <div
-            class="tree-card"
+            class="tree-card gen-${Math.min(generation,5)}"
             onclick="showPerson('${person.id}')">
 
             <div class="tree-card-name">
@@ -321,20 +354,22 @@ let html = `
 
         </div>
 
+    </div>
 `;
 
-        const family =
-            genealogy.families.find(
-                f => f.father === personId
-            );
-
-        if(family && family.children.length > 0){
+        if(
+    hasChildren &&
+    !collapsed
+){
 
             html += "<ul>";
 
             family.children.forEach(childId => {
 
-                html += renderBranch(childId);
+                html += renderBranch(
+    childId,
+    generation + 1
+);
 
             });
 
@@ -375,7 +410,7 @@ let html = `
 
                 <ul class="tree-list">
 
-                    ${renderBranch(rootId)}
+                    ${renderBranch(rootId,1)}
 
                 </ul>
 
@@ -556,4 +591,14 @@ function initializeTreePan(){
     };
 
     updateTreeTransform();
+}
+
+const collapsedBranches = {};
+
+function toggleBranch(personId){
+
+    collapsedBranches[personId] =
+        !collapsedBranches[personId];
+
+    showDescendants();
 }
