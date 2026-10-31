@@ -376,3 +376,34 @@ ul{
     text-align:center;
     color:#999;
 }
+/* GENERAZIONI */
+
+/* Capostipite */
+.gen-1{
+    background:#fef3c7;
+    border:2px solid #d97706;
+}
+
+/* Figli */
+.gen-2{
+    background:#dbeafe;
+    border:2px solid #2563eb;
+}
+
+/* Nipoti */
+.gen-3{
+    background:#dcfce7;
+    border:2px solid #16a34a;
+}
+
+/* Pronipoti */
+.gen-4{
+    background:#ede9fe;
+    border:2px solid #7c3aed;
+}
+
+/* Generazioni successive */
+.gen-5{
+    background:#f3f4f6;
+    border:2px solid #6b7280;
+}
