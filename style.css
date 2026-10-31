@@ -352,3 +352,27 @@ ul{
     font-size:0.9em;
     color:#666;
 }
+.tree-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.tree-toggle{
+    cursor:pointer;
+    font-weight:bold;
+    color:#2563eb;
+    width:25px;
+    text-align:center;
+    user-select:none;
+}
+
+.tree-toggle:hover{
+    color:#1d4ed8;
+}
+
+.tree-toggle-empty{
+    width:25px;
+    text-align:center;
+    color:#999;
+}
