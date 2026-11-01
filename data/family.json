@@ -290,7 +290,137 @@
       "id": "P19",
       "givenName": "Piero",
       "surname": "Cappello"
-    }
+    },
+{
+  "id": "P230",
+  "givenName": "Maria",
+  "surname": "Ferraris",
+  "birthDate": "1921-02-23"
+},
+{
+  "id": "P231",
+  "givenName": "Giovanna",
+  "surname": "Cappello",
+  "birthDate": "1941-11-12",
+  "deathDate": "2023-09-15"
+},
+{
+  "id": "P232",
+  "givenName": "Mario",
+  "surname": "Cappello",
+  "birthDate": "1947-02-11"
+},
+{
+  "id": "P233",
+  "givenName": "Rosanna",
+  "surname": "Cappello"
+},
+{
+  "id": "P234",
+  "givenName": "Imelda",
+  "surname": "Cappello"
+},
+{
+  "id": "P235",
+  "givenName": "Renato",
+  "surname": "Raviola",
+  "birthYear": 1936,
+  "deathYear": 1986
+},
+{
+  "id": "P236",
+  "givenName": "Franco",
+  "surname": "Raviola"
+},
+{
+  "id": "P237",
+  "givenName": "Silvana",
+  "surname": "Raviola"
+},
+{
+  "id": "P238",
+  "givenName": "Davide",
+  "surname": "Cappello",
+  "birthDate": "1977-03-21"
+},
+{
+  "id": "P239",
+  "givenName": "Monica",
+  "surname": "Grillone",
+  "birthDate": "1976-02-27",
+  "notes": "Matrimonio 06/06/2009"
+},
+{
+  "id": "P240",
+  "givenName": "Chiara",
+  "surname": "Cappello",
+  "birthDate": "2012-06-24"
+},
+{
+  "id": "P241",
+  "givenName": "Serena",
+  "surname": "Cappello",
+  "birthDate": "2016-04-14"
+},
+{
+  "id": "P242",
+  "givenName": "Stefano",
+  "surname": "Cappello",
+  "birthDate": "1972-04-23"
+},
+{
+  "id": "P243",
+  "givenName": "Anna Maria",
+  "surname": "Melis",
+  "notes": "Matrimonio 27/08/2005"
+},
+{
+  "id": "P244",
+  "givenName": "Mattia",
+  "surname": "Cappello",
+  "birthDate": "2011-11-27"
+},
+{
+  "id": "P245",
+  "givenName": "Daniele",
+  "surname": "Cappello",
+  "birthDate": "2011-11-27"
+},
+{
+  "id": "P246",
+  "givenName": "Angelo",
+  "surname": "Bergantin"
+},
+{
+  "id": "P247",
+  "givenName": "Giorgio",
+  "surname": "Bergantin"
+},
+{
+  "id": "P248",
+  "givenName": "Marco",
+  "surname": "Bergantin"
+},
+{
+  "id": "P249",
+  "givenName": "Luciana",
+  "surname": "Mainetti"
+},
+{
+  "id": "P250",
+  "givenName": "Marisa",
+  "surname": "Mainetti"
+},
+{
+  "id": "P251",
+  "givenName": "Roberto",
+  "surname": "Mainetti"
+},
+{
+  "id": "P252",
+  "givenName": "Massimo",
+  "surname": "Mainetti"
+}
   ],
 
   "families": [
@@ -378,7 +508,72 @@
         "P18",
         "P19"
       ]
-    }
+    },
+{
+  "id": "F7",
+  "father": "P6",
+  "mother": "P230",
+  "children": [
+    "P231",
+    "P232",
+    "P233",
+    "P234"
+  ]
+},
+{
+  "id": "F8",
+  "father": "P235",
+  "mother": "P231",
+  "children": [
+    "P236",
+    "P237"
+  ]
+},
+{
+  "id": "F9",
+  "father": "P232",
+  "children": [
+    "P242",
+    "P238"
+  ]
+},
+{
+  "id": "F10",
+  "father": "P238",
+  "mother": "P239",
+  "children": [
+    "P240",
+    "P241"
+  ]
+},
+{
+  "id": "F11",
+  "father": "P242",
+  "mother": "P243",
+  "children": [
+    "P244",
+    "P245"
+  ]
+},
+{
+  "id": "F12",
+  "father": "P246",
+  "mother": "P233",
+  "children": [
+    "P247",
+    "P248"
+  ]
+},
+{
+  "id": "F13",
+  "mother": "P234",
+  "children": [
+    "P249",
+    "P250",
+    "P251",
+    "P252"
+  ]
+}
   ],
 
   "sources": [
