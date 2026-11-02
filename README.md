@@ -1,2 +1,2 @@
 This is the Sperimental Full Web App
-with Azure Storage
+with Azure Storage and media
