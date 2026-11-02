@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - feature/v2-archive
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
-    branches:
-      - feature/v2-archive
 
 jobs:
   build_and_deploy_job:
