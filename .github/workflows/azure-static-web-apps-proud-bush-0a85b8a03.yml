@@ -1,4 +1,4 @@
-name: Azure Static Web Apps CI/CD v2
+name: Genealogia v2
 
 on:
   push:
