@@ -148,7 +148,25 @@ function showPerson(id){
             `
             : ""
         }
+<h3>Fonti</h3>
 
+<p>
+    ${
+        p.sources && p.sources.length > 0
+            ? p.sources.length + " fonte/i collegata/e"
+            : "Nessuna fonte collegata"
+    }
+</p>
+
+<h3>Media</h3>
+
+<p>
+    ${
+        p.media && p.media.length > 0
+            ? p.media.length + " allegato/i"
+            : "Nessun allegato"
+    }
+</p>
     `;
 }
 
