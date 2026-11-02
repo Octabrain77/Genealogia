@@ -333,7 +333,9 @@
 {
   "id": "P234",
   "givenName": "Imelda",
-  "surname": "Cappello"
+  "surname": "Cappello",
+  "birthDate": "1943-09-28",
+  "deathDate": "2022-10-02"
 },
 {
   "id": "P235",
