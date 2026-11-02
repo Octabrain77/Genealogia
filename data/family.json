@@ -9,6 +9,21 @@
   ],
   "birthYear": 1822,
   "deathDate": "1904-03-28",
+  "sources": [
+  "S1"
+],
+
+"media": [
+  "P100/tomba_famiglia.jpg"
+],
+
+"tags": [
+  "fondatore",
+  "linea_diretta",
+  "documentato"
+],
+
+"researchStatus": "confermato",
   "notes": "Ortolano. Figlio di Giuseppe Cappello e Teresa Vogliolo. Vedovo di Caterina Ballario. Morì il 28/03/1904, lo stesso giorno della moglie."
 }
 ,
@@ -578,10 +593,11 @@
 
   "sources": [
     {
-      "id": "S1",
-      "type": "grave",
-      "title": "Tomba Ballario-Cappello"
-    },
+  "id": "S1",
+  "type": "grave",
+  "title": "Tomba Ballario-Cappello",
+  "file": "P100/tomba_famiglia.jpg"
+},
     {
       "id": "S2",
       "type": "marriage-record",
